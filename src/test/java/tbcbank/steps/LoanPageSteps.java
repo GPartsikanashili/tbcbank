@@ -5,10 +5,13 @@ import tbcbank.pages.LoanPage;
 
 public class LoanPageSteps {
     private final LoanPage loanPage;
+    private final Page page;
 
     public LoanPageSteps(Page page) {
+        this.page = page;
         this.loanPage = new LoanPage(page);
     }
+
     public LoanPageSteps clickpirobebi() {
         loanPage.pirobebiBtn.first().click();
         return this;
@@ -25,5 +28,10 @@ public class LoanPageSteps {
     }
     public com.microsoft.playwright.Locator getResults() {
         return loanPage.resultsContainer;
+    }
+    public Page applyLoansClick() {
+        return page.context().waitForPage(() -> {
+            loanPage.applyLoans.click();
+        });
     }
 }

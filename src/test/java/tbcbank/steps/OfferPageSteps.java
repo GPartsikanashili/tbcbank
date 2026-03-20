@@ -27,6 +27,26 @@ public class OfferPageSteps {
         assertThat(offerPage.offerDescritpion).isVisible();
         return this;
     }
+    public OfferPageSteps markGanatsileba() {
+        offerPage.ganatsilebaCheckBox.check();
+        return  this;
+    }
+    public OfferPageSteps markMasterCard(){
+        offerPage.mastercardPayCheckBox.check();
+        return this;
+    }
+    public OfferPageSteps verifyNoOffersIsVisible() {
+        assertThat(offerPage.noOffersFound).isVisible();
+        return this;
+    }
+    public OfferPageSteps clearCardFilter(){
+        offerPage.clearCardFilterButton.click();
+        return this;
+    }
+    public OfferPageSteps verifyOfferList(){
+        offerPage.offerList.isVisible();
+        return this;
+    }
 
     }
 

@@ -42,13 +42,4 @@ public class BaseTest {
         }
     }
 
-    @AfterMethod
-    public void tearDown() {
-        if (browser != null) {
-            browser.close();
-        }
-        if (playwright != null) {
-            playwright.close();
-        }
-    }
 }

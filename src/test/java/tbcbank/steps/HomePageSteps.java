@@ -30,5 +30,10 @@ public class HomePageSteps {
         homePage.moneyTransferBtn.click();
         return this;
     }
+    public HomePageSteps clickFooterLoans(){
+        homePage.footerLoans.click();
+        return this;
+
+    }
 
 }

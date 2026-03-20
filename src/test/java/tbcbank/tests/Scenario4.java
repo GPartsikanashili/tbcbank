@@ -1,4 +1,3 @@
-
 package tbcbank.tests;
 
 import org.testng.annotations.BeforeMethod;
@@ -8,8 +7,9 @@ import tbcbank.steps.HomePageSteps;
 import tbcbank.steps.OfferPageSteps;
 
 import static tbcbank.data.ExtraUrl.extraOfferUrl;
+import static tbcbank.data.BlankOfferUrl.blankOfferUrl;
 
-public class Scenarion3 extends BaseTest {
+public class Scenario4 extends BaseTest {
     HomePageSteps homeSteps;
     OfferPageSteps OfferSteps;
 
@@ -20,12 +20,17 @@ public class Scenarion3 extends BaseTest {
     }
 
     @Test
-    public void OfferCheck() {
-        page.navigate(extraOfferUrl);
+    public void BlankOfferCheck() {
+        page.navigate(blankOfferUrl);
         OfferSteps
-                .verifyOfferTitle()
-                .verifyOfferBanner()
-                .verifyOfferDiscount()
-                .verifyOfferDescription();
-    }
+                .markGanatsileba()
+                .markMasterCard();
+        page.waitForTimeout(3000);
+                OfferSteps.verifyNoOffersIsVisible()
+                .clearCardFilter();
+        page.waitForTimeout(3000);
+              OfferSteps.verifyOfferList();
+        page.waitForTimeout(2000);
+          }
 }
+
